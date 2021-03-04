@@ -33,8 +33,8 @@ body {
     padding-bottom: 100px;
     color: #fff;
     background: url(fondo.png), #7b4397;
-    background: url(fondo.png), -webkit-gradient(linear, right top, left top, from(#7b4397), to(#dc2430));
-    background: url(fondo.png), linear-gradient(to left, #7b4397, #dc2430)
+    background: url(fondo.png), -webkit-gradient(linear, right top, left top, from(#42acf3), to(#dc2430));
+    background: url(fondo.png), linear-gradient(to left, #255a72, #dc2430)
 }
 
 .presupuesto {
@@ -69,7 +69,7 @@ body {
 
 .presupuesto_ingreso {
     margin-bottom: 10px;
-    background-color: #28B9B5;
+    background-color: #48b8da;
 }
 
 .presupuesto_egreso {
@@ -191,7 +191,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-.ingreso_titulo { color: #28B9B5; }
+.ingreso_titulo { color: #37a0d1; }
 .egreso_titulo { color: #FF5049; }
 
 .elemento {
@@ -225,7 +225,7 @@ h2 {
 
 .ingreso .elemento_valor,
 .ingreso .elemento_eliminar--btn {
-    color: #28B9B5;
+    color: #37a0d1;
 }
 
 .egreso .elemento_valor,
