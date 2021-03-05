@@ -73,8 +73,8 @@ const crearIngresoHTML = (ingreso)=>{
         <div class="derecha limpiarEstilos">
             <div class="elemento_valor">+ ${formatoMoneda(ingreso.valor)}</div>
             <div class="elemento_eliminar">
-                <button class="elemento_eliminar--btn">
-                    <ion-icon name='close-circle-outline'></ion-icon>
+                <button class="elemento_eliminar--btn" >
+                    <ion-icon name='close-circle-outline' onclick='eliminarIngreso(${ingreso.id})'></ion-icon>
                 </button>
             </div>
         </div>
@@ -106,11 +106,28 @@ const crearEgresosHTML = (egreso) =>{
             <div class="elemento_porcentaje">${formatoPorcentaje(egreso.valor/totalEgresos())}</div>
             <div class="elemento_eliminar">
                 <button class="elemento_eliminar--btn">
-                    <ion-icon name='close-circle-outline'></ion-icon>
+                    <ion-icon name='close-circle-outline' onclick='eliminarEgreso(${egreso.id})'></ion-icon>
                 </button>
             </div>
         </div>
     </div>
     `;
     return egresoHTML;
+}
+
+//ESTA FUNCION TRAE COMO PARAMETRO EL ID GENERADO POR ACA INGRESO, SE RECORRE EL ARREGLO MEDIANTE LA FUNCION
+//FINDEINDEX() Y COMPARAMOS EL ID PASADO POR PARAMETRO CON EL QUE ESTA ITERANDO, UNA VEZ SEAN IGUALES SE ELIMINA 
+//MEDIANTE EL METODO SPLICE Y SE RECARGA EL CABECERO Y LA LISTA
+const eliminarIngreso = (id)=> {
+    let indiceEliminar = ingresos.findIndex(ingreso => ingreso.id === id);
+    ingresos.splice(indiceEliminar, 1);
+    cargarCabecero();
+    cargarIngresos();
+}
+
+const eliminarEgreso = (id)=> {
+    let indiceEliminar = egresos.findIndex(egreso => egreso.id === id);
+    egresos.splice(indiceEliminar, 1);
+    cargarCabecero();
+    cargarEgresos();
 }
