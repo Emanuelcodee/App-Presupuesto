@@ -47,7 +47,7 @@ let cargarCabecero = ()=> {
 
 //ESTA FUNCION DA UN FORMATO DE MONEDA EN DOLARES
 const formatoMoneda = (valor)=> {
-    return valor.toLocaleString('en-US', {style: 'currency', currency:'USD', minimumFractionDigits:2});
+    return valor.toLocaleString('es-ES', {style: 'currency', currency:'EUR', minimumFractionDigits:2});
 }
 
 //FORMATO DE PORCENTAJE
@@ -130,4 +130,24 @@ const eliminarEgreso = (id)=> {
     egresos.splice(indiceEliminar, 1);
     cargarCabecero();
     cargarEgresos();
+}
+
+//ESTA FUNCION ME PERMITE AGREGAR UN NUEVO EGRESO O INGRESO AL LISTADO 
+const agregarDato = ()=> {
+    let forma = document.forms['forma'];
+    let tipo = forma['tipo'];
+    let descripcion = forma['descripcion'];
+    let valor = forma['valor'];
+
+    if(descripcion.value !== '' && valor.value !== ''){
+        if(tipo.value === 'ingreso'){
+            ingresos.push(new Ingreso(descripcion.value, +valor.value));
+            cargarCabecero();
+            cargarIngresos();
+        }else if(tipo.value === 'egreso'){
+            egresos.push(new Egreso(descripcion.value, +valor.value));
+            cargarCabecero();
+            cargarEgresos();
+        }
+    }
 }
